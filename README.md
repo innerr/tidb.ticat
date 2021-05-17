@@ -2,8 +2,6 @@
 A [ticat](https://github.com/innerr/ticat) mods repo:
 for TiDB development
 
-## This doc is WIP
-
 ## Target
 * Improve the experience and efficiency in non-production scenarios
     * TiDB developing, integration testing, benchmark, POC, etc
@@ -14,7 +12,7 @@ for TiDB development
 * Rich features
 * Easy to share context, or to run others'
 * Scenario-centered
-[more-detail-about-ticat](https://github.com/innerr/ticat/README.md)
+* More-details: [about-ticat](https://github.com/innerr/ticat/README.md)
 
 ## Apply this repo by running:
 ```bash
