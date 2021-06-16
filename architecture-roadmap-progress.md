@@ -1,4 +1,13 @@
-# Progress
+## How to land TiDB on ticat
+There are some clean edges of TiDB sub systems:
+* Deploying, input `tiup yaml config`, output `cluster name`
+* TiDB cluster related toolset, input `cluster name`, include start/stop/scale-in/jitter-scanning, etc
+* Workloads, input `mysql address`
+* ...
+
+## 
+
+# Modules progress
 ```
 Deploy                                 - write: tidb.cluster. read: tidb.tiup.yaml
     By template
@@ -56,4 +65,12 @@ Workloads                              - read: mysql.host|port
         YCSB
     Customized workloads
         Wide table inserting
+```
+
+## Scenario progress
+```
+**---  New playground
+*----  Benchmark
+-----  Integration testing
+-----  (TBD)
 ```
