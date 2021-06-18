@@ -1,18 +1,23 @@
-## How to land TiDB on ticat
+# How to land TiDB on ticat
+
+## The edges of TiDB sub systems
 There are some clean edges of TiDB sub systems:
 * Deploying, input `tiup yaml config`, output `cluster name`
 * TiDB cluster related toolset, input `cluster name`, include start/stop/scale-in/jitter-scanning, etc
 * Workloads, input `mysql address`
 * ...
 
-## 
+## Component subsets and the essential ticat env keys
+For each TiDB sub system, we will create a component subset, develop a group of **ticat** components.
+
+Take "deploying" as an example, it
 
 # Modules progress
 ```
-Deploy                                 - write: tidb.cluster. read: tidb.tiup.yaml
+Deploy                                 - write: tidb.cluster
     By template
     Auto deploy
-    Link to manually deployed
+    Link to manually deployed          - read: tidb.tiup.yaml
 
 Cluster events                         - read: tidb.cluster
     Start                              - write: mysql.host|port

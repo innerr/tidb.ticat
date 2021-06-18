@@ -1,4 +1,4 @@
-## Why this is needed
+# Why this is needed
 The generalized TiDB system include many dimensions:
 * Cluster hardwares and topologies
 * Cluster maintenances: deploy, stop, start, scale in/out
@@ -7,14 +7,14 @@ The generalized TiDB system include many dimensions:
 * All MySQL compatible workloads
 * ...
 
-It's hard to cover all casts since the possible set is huge from these dimensions multiply together.
+It's hard to cover all casts since the possible collection set is huge from these dimensions multiply together.
 
 TiDB developing uses an automatic centerized-integrating procedure to ensure the production quality and performance,
 that could only cover the typical usages.
 
 This compromised both costs and qualities in developing.
 
-## How it improve things
+# How it improve things
 By using [ticat](https://github.com/innerr/ticat), any utilities/tools could easily wrap into components.
 All components seamlessly work togather, form a full-featured system.
 
@@ -31,9 +31,9 @@ By breaking centerized-integration into perpendicular components,
 have the potential to cover all casts.
 By the end-user assembling, we get a powerful yet flexable system.
 
-## Build a better TiDB ecosystem with ticat
+# Build a better TiDB ecosystem with ticat
 
-### The problem: lonely and ineffective fighters
+## The problem: lonely and ineffective fighters
 Building a big, rich-featured system is difficult,
 to control the quality normally we have hard boundaries of the system,
 all things **in** it are expected to be well designed and tested.
@@ -56,7 +56,7 @@ smart guys write "quick and dirty" scripts to solve that. Or not, that's worse.
 This is the problem we have, inside the core-system everything is (fairly) tidy and clean,
 outside is out of control, each developer/user fights alone.
 
-### Rock with ticat
+## Rock with ticat
 With **ticat** a workflow is a pipeline like `<get hardware resource> : <deploy TiDB> : <run tpcc>`,
 we don't need a well implement "auto deploy" tool,
 it could be the "quick and dirty" scripts wrapped as a component,
@@ -78,4 +78,3 @@ and grow features can be put into core-system.
 
 Through that we achieve fully automation, reduce costs, enhance developing env,
 thus make a better product and a better ecosystem.
-
