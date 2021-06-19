@@ -30,3 +30,7 @@ $> ticat hub.add innerr/tidb.ticat
 ### Advance usage
 This repo is a package of many **ticat** components(modules),
 for detail usage please read [README of ticat](https://github.com/innerr/ticat/blob/main/README.md).
+
+## Sub repo list
+* [innerr/cluster.tidb.ticat](https://github.com/innerr/cluster.tidb.ticat): TiDB cluster management mods
+* [innerr/bench.tidb.ticat](https://github.com/innerr/bench.tidb.ticat): TiDB benchmark mods
