@@ -1,0 +1,6 @@
+help = restore workload data to cluster, then run workload
+
+flow = tidb.clean : [[bench.workload]].gen-backup-tag : tidb.backup.restore : tidb.start : mysql.link.tidb : [[bench.workload]].run
+
+[env]
+bench.workload = read

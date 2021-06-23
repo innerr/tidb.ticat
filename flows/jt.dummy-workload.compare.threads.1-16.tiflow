@@ -1,0 +1,14 @@
+help = pretend to prepare data and compare result of different threads
+
+abbr = jt.dwl.comp|cmp.thread|t|T.1-16
+
+flow = \
+	jt.dummy-workload.prepare : \
+	[[bench.workload]].config.threads  1 : jt.dummy-workload.run : \
+	[[bench.workload]].config.threads  2 : jt.dummy-workload.run : \
+	[[bench.workload]].config.threads  4 : jt.dummy-workload.run : \
+	[[bench.workload]].config.threads  8 : jt.dummy-workload.run : \
+	[[bench.workload]].config.threads 16 : jt.dummy-workload.run
+
+[env]
+bench.workload = read

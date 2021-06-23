@@ -1,0 +1,3 @@
+help = test dummy-workload @selftest
+
+flow = dbg.delay : db.config.test : db.rm : db.depl : dwl.conf.min : jt.wl.cmp.t.1-16

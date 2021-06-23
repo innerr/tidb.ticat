@@ -1,0 +1,15 @@
+help = prepare data, then compare result of different threads
+
+abbr = jt.workload.comp|cmp.thread|t|T.1-16
+
+flow = \
+	jt.workload.prepare : \
+	[[bench.workload]].config.threads  1 : jt.workload.run : \
+	[[bench.workload]].config.threads  2 : jt.workload.run : \
+	[[bench.workload]].config.threads  4 : jt.workload.run : \
+	[[bench.workload]].config.threads  8 : jt.workload.run : \
+	[[bench.workload]].config.threads 16 : jt.workload.run : \
+	tidb.destroy
+
+[env]
+bench.workload = read

@@ -1,0 +1,3 @@
+help = use TPCC workload to run a simple test @selftest
+
+flow = dbg.delay : db.config.test : db.rm : db.depl : tpcc.conf.min : jt.wl.cmp.t.1-16

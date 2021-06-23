@@ -1,0 +1,6 @@
+help = pretend to run workload
+
+flow = [[bench.workload]].gen-backup-tag : [[bench.workload]].run
+
+[env]
+bench.workload = read

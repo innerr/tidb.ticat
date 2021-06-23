@@ -1,0 +1,7 @@
+help = pretend to load and backup data
+abbr = jt.dwl.pp
+
+flow = [[bench.workload]].load : [[bench.workload]].gen-backup-tag
+
+[env]
+bench.workload = read

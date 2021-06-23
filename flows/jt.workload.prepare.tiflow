@@ -1,0 +1,9 @@
+help = load workload data to a given empty cluster then do physical backup
+abbr = jt.works|work|wl.pp
+
+flow = \
+	tidb.clean : tidb.start : mysql.link.tidb : [[bench.workload]].load : tidb.stop : \
+	[[bench.workload]].gen-backup-tag : tidb.backup.backup
+
+[env]
+bench.workload = read
