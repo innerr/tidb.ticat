@@ -1,0 +1,18 @@
+help = compare result of 2 different versons
+
+abbr = jt.x.ver|v|V.2
+
+flow = \
+	tidb.config.version [[jt.x.versions.1]] : [[jt.x.versions.sub-flow]] : \
+	tidb.config.version [[jt.x.versions.2]] : [[jt.x.versions.sub-flow]]
+
+[arg]
+sub-flow|sub = jt.x.one
+
+[arg2env]
+jt.x.versions.sub-flow = sub-flow
+
+[env]
+jt.x.versions|version|ver.sub-flow = read
+jt.x.versions.1 = read
+jt.x.versions.2 = read

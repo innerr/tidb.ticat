@@ -1,0 +1,9 @@
+help = run workload without multiplication
+
+flow = jt.workload.run
+
+[arg]
+run-flow|run = jt.workload.run
+
+[arg2env]
+jt.x.run-flow = run-flow

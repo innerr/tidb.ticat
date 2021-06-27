@@ -1,0 +1,20 @@
+help = compare result of different threads from 1 to 16
+
+abbr = jt.x.thread|t|T.1-16
+
+flow = \
+	[[bench.workload]].config.threads  1 : [[jt.x.threads.sub-flow]] : \
+	[[bench.workload]].config.threads  2 : [[jt.x.threads.sub-flow]] : \
+	[[bench.workload]].config.threads  4 : [[jt.x.threads.sub-flow]] : \
+	[[bench.workload]].config.threads  8 : [[jt.x.threads.sub-flow]] : \
+	[[bench.workload]].config.threads 16 : [[jt.x.threads.sub-flow]]
+
+[arg]
+sub-flow|sub = jt.x.one
+
+[arg2env]
+jt.x.threads.sub-flow = sub-flow
+
+[env]
+bench.workload = read
+jt.x.threads.sub-flow = read
