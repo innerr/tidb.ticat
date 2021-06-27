@@ -6,5 +6,5 @@ version1|ver1|v1 = ''
 version2|ver2|v2 = ''
 
 [arg2env]
-jt.x.versions.1 = read
-jt.x.versions.2 = read
+jt.x.versions.1 = version1
+jt.x.versions.2 = version2
