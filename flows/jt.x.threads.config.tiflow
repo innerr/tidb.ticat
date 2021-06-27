@@ -1,4 +1,4 @@
-help = setup workload threads (same as '<workload>.config.threads <threads>')
+help = setup workload threads (same as '<workload>.config.threads <threads>') @config
 
 abbr = jt.x.threads.conf
 

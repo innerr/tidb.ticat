@@ -1,4 +1,4 @@
-help = config workload multiplications
+help = config workload multiplications @config
 abbr = jt.x.conf
 
 [arg]
