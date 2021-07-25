@@ -3,17 +3,14 @@ help = compare result of different threads from 1 to 16
 abbr = bench.thread|t|T.1-16
 
 flow = \
-	[[bench.workload]].config.threads  1 : [[bench.threads.sub-flow]] : \
-	[[bench.workload]].config.threads  2 : [[bench.threads.sub-flow]] : \
-	[[bench.workload]].config.threads  4 : [[bench.threads.sub-flow]] : \
-	[[bench.workload]].config.threads  8 : [[bench.threads.sub-flow]] : \
-	[[bench.workload]].config.threads 16 : [[bench.threads.sub-flow]]
+	[[bench.workload]].config.threads  1 : [[sub-flow]] : \
+	[[bench.workload]].config.threads  2 : [[sub-flow]] : \
+	[[bench.workload]].config.threads  4 : [[sub-flow]] : \
+	[[bench.workload]].config.threads  8 : [[sub-flow]] : \
+	[[bench.workload]].config.threads 16 : [[sub-flow]]
 
 [arg]
-sub-flow|sub = bench.one
-
-[arg2env]
-bench.threads.sub-flow = sub-flow
+sub-flow|sub = bench.run
 
 [env]
 bench.workload = read

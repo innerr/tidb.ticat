@@ -3,16 +3,12 @@ help = compare result of 2 different versons
 abbr = bench.ver|v|V.2
 
 flow = \
-	tidb.config.version [[bench.versions.1]] : [[bench.versions.sub-flow]] : \
-	tidb.config.version [[bench.versions.2]] : [[bench.versions.sub-flow]]
+	tidb.config.version [[bench.versions.1]] : [[sub-flow]] : \
+	tidb.config.version [[bench.versions.2]] : [[sub-flow]]
 
 [arg]
-sub-flow|sub = bench.one
-
-[arg2env]
-bench.versions.sub-flow = sub-flow
+sub-flow|sub = bench.run
 
 [env]
-bench.versions|version|ver.sub-flow = read
 bench.versions.1 = read
 bench.versions.2 = read
