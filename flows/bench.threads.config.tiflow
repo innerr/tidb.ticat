@@ -1,15 +1,15 @@
 help = setup workload threads (same as '<workload>.config.threads <threads>') @config
 
-abbr = jt.x.threads.conf
+abbr = bench.threads.conf
 
-flow = [[bench.workload]].config.threads [[jt.x.threads.value]]
+flow = [[bench.workload]].config.threads [[bench.threads.value]]
 
 [arg]
 threads|thread|t|T = ''
 
 [env]
 bench.workload = read
-jt.x.threads.value = read
+bench.threads.value = read
 
 [arg2env]
-jt.x.threads.value = threads
+bench.threads.value = threads

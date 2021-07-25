@@ -1,10 +1,10 @@
 help = setup compare versions
-abbr = jt.x.versions.conf
+abbr = bench.versions.conf
 
 [arg]
 version1|ver1|v1 = ''
 version2|ver2|v2 = ''
 
 [arg2env]
-jt.x.versions.1 = version1
-jt.x.versions.2 = version2
+bench.versions.1 = version1
+bench.versions.2 = version2

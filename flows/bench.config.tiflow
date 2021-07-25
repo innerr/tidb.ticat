@@ -1,0 +1,8 @@
+help = config workload multiplications @config
+abbr = bench.conf
+
+[arg]
+run-flow|run = bench.run
+
+[arg2env]
+bench.run-flow = run-flow

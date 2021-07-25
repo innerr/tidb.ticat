@@ -1,0 +1,9 @@
+help = run workload without multiplication
+
+flow = bench.run
+
+[arg]
+run-flow|run = bench.run
+
+[arg2env]
+bench.run-flow = run-flow

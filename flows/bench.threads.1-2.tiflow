@@ -1,0 +1,15 @@
+help = compare result of different threads from 1 to 2
+
+flow = \
+	[[bench.workload]].config.threads  1 : [[bench.threads.sub-flow]] : \
+	[[bench.workload]].config.threads  2 : [[bench.threads.sub-flow]]
+
+[arg]
+sub-flow|sub = bench.one
+
+[arg2env]
+bench.threads.sub-flow = sub-flow
+
+[env]
+bench.workload = read
+bench.threads.sub-flow = read

@@ -1,8 +1,8 @@
 help = load workload data to a given empty cluster then do physical backup
-abbr = jt.works|work|wl.pp
+abbr = bench.pp
 
 flow = \
-	tidb.clean : tidb.start : [[bench.workload]].load : tidb.stop : \
+	tidb.rm : tidb.new : [[bench.workload]].load : tidb.stop : \
 	[[bench.workload]].gen-backup-tag : tidb.backup.backup
 
 [env]
