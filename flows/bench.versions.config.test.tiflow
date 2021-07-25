@@ -1,5 +1,5 @@
 help = setup compare versions for quick test
 
 [val2env]
-jt.x.versions.1 = v5.1.0
-jt.x.versions.2 = nightly
+bench.versions.1 = v5.1.0
+bench.versions.2 = nightly
