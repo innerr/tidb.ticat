@@ -7,3 +7,5 @@ flow = \
 
 [env]
 bench.workload = read
+bench.run.start = write
+bench.run.end = write

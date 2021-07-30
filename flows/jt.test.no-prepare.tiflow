@@ -2,7 +2,5 @@ help = a quick test of jt toolbox
 abbr = jt.test.npp
 
 flow = \
-	bench.meta.local.+100 : mark-time bench.start : \
 	tidb.config.test : tpcc.config.min : bench.ver.config version2=nightly version1=v5.1.0 : \
-	bench.threads.1-2 bench.ver.2 : db.rm : \
-	bench.record.show : bench.meta.rm
+	bench.threads.1-2 bench.ver.2 : db.rm : bench.record.show
