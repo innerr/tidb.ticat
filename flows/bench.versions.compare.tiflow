@@ -1,0 +1,14 @@
+help = compare bench result of different versions in a list seperated by ','
+abbr = bench.versions.cmp
+
+flow = ** tidb.config.version [[*bench.versions*]] : [[sub-flow]] : **
+
+[arg]
+sub-flow|sub = bench.run
+versions|v|V = v5.1.0,nightly
+
+[env]
+bench.versions = read
+
+[arg2env]
+bench.versions = versions

@@ -1,4 +1,4 @@
-help = setup workload threads (same as '<workload>.config.threads <threads>') @config
+help = setup workload threads (same as '<workload>.config.threads <threads>')
 
 abbr = bench.threads.conf
 

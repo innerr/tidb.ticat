@@ -1,0 +1,38 @@
+help = run tpcc benchmark \
+	arg 'threads' is an int value or a list seperated by ',' \
+	arg 'versions' is alike
+
+abbr = jt.tpcc.thread-version|t-v
+
+flow = bench.meta.local.new-port+100 : bench.prepare : bench.threads.cmp bench.versions.cmp : db.rm : bench.record.show
+
+
+[arg]
+tiup-yaml-path-or-predefined-name|yaml = test
+warehouses|warehouse|wh = 1
+run-duration|duration|dur = 1m
+load-threads|load-thread|load|lt = 1
+
+threads|thread|thrd|thd|t|T = 1,2
+versions|version|ver|v|V = v5.1.0,nightly
+load-data-version|load-version|ldv = v5.1.0
+
+cluster-name|cluster = tpcc-bench
+
+
+[arg2env]
+tidb.tiup.yaml.predefined = tiup-yaml-path-or-predefined-name
+tidb.cluster = cluster-name
+tidb.version = load-data-version
+
+bench.tpcc.warehouses = warehouses
+bench.tpcc.duration = run-duration
+bench.tpcc.load.threads = load-threads
+
+bench.threads = threads
+bench.versions = versions
+
+
+[val2env]
+bench.workload = tpcc
+tidb.op.confirm = no

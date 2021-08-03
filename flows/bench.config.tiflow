@@ -1,4 +1,4 @@
-help = config workload multiplications @config
+help = config workload multiplications
 abbr = bench.conf
 
 [arg]
