@@ -6,3 +6,9 @@ flow = mark-time bench.run.start : [[bench.workload]].run : mark-time bench.run.
 bench.workload = read
 bench.run.start = write
 bench.run.end = write
+
+[val2env]
+bench.run.start = n/a
+bench.run.end = n/a
+bench.run.log = n/a
+bench.run.score = n/a
