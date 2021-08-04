@@ -1,0 +1,3 @@
+help = restore workload data to cluster, then run workload
+abbr = bench.r+run
+flow = bench.restore : bench.run

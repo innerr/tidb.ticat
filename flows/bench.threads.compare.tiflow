@@ -1,15 +1,17 @@
 help = compare bench result of different threads in a list seperated by ','
 abbr = bench.threads.cmp
 
-flow = **[[bench.workload]].config.threads [[*bench.threads*]] : [[sub-flow]] : **
+flow = **[[bench.workload]].config.threads [[*bench.compare.threads*]] : [[bench.compare.threads.sub-flow]] : **
 
 [arg]
-sub-flow|sub = bench.run
+sub-flow|sub = bench.restore+run
 threads|t|T = 1,2
 
 [arg2env]
-bench.threads = threads
+bench.compare.threads = threads
+bench.compare.threads.sub-flow = sub-flow
 
 [env]
 bench.workload = read
-bench.threads = read
+bench.compare.threads = read
+bench.compare.threads.sub-flow = read

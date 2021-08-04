@@ -1,0 +1,17 @@
+help = compare bench result of different versions in a list seperated by ',', data will be reset in each version
+
+abbr = bench.versions.restore+cmp|r+cmp
+
+flow = ** tidb.config.version [[*bench.compare.versions*]] : bench.restore : [[bench.compare.versions.sub-flow]] : **
+
+[arg]
+sub-flow|sub = bench.restore+run
+versions|v|V = v5.1.0,nightly
+
+[env]
+bench.compare.versions = read
+bench.compare.versions.sub-flow = read
+
+[arg2env]
+bench.compare.versions = versions
+bench.compare.versions.sub-flow = sub-flow

@@ -1,5 +1,0 @@
-help = setup compare versions for quick test
-
-[val2env]
-bench.versions.1 = v5.1.0
-bench.versions.2 = nightly

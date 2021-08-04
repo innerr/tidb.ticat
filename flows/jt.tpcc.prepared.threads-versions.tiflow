@@ -1,11 +1,9 @@
-help = run tpcc benchmark on already loaded and backuped data \
-	arg 'threads' is an int value or a list seperated by ',' \
-	arg 'versions' is alike
+help = run tpcc with different threads and versions, data will be reset in each run \
+	args 'threads' and 'versions' could be values seperated by ',' or a single value
 
 abbr = jt.tpcc.loaded.thread-version|t-v
 
 flow = bench.meta.local.new-port+100 : tidb.yaml.template : bench.threads.cmp bench.versions.cmp : db.rm : bench.record.show
-
 
 [arg]
 tiup-yaml-path-or-predefined-name|yaml = test
@@ -19,7 +17,6 @@ load-data-version|load-version|ldv = v5.1.0
 
 cluster-name|cluster = tpcc-bench
 
-
 [arg2env]
 tidb.tiup.yaml.predefined = tiup-yaml-path-or-predefined-name
 tidb.cluster = cluster-name
@@ -29,9 +26,8 @@ bench.tpcc.warehouses = warehouses
 bench.tpcc.duration = run-duration
 bench.tpcc.load.threads = load-threads
 
-bench.threads = threads
-bench.versions = versions
-
+bench.compare.threads = threads
+bench.compare.versions = versions
 
 [val2env]
 bench.workload = tpcc

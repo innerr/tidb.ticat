@@ -2,7 +2,7 @@ help = config workload multiplications
 abbr = bench.conf
 
 [arg]
-run-flow|run = bench.run
+run-flow|run = bench.restore+run
 
 [arg2env]
 bench.run-flow = run-flow

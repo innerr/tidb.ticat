@@ -1,16 +1,8 @@
-help = restore workload data to cluster, then run workload
+help = run workload and record the result to meta db
 
-flow = \
-	tidb.rm : tidb.deploy : [[bench.workload]].gen-backup-tag : tidb.backup.restore : tidb.start : \
-	mark-time bench.run.start : [[bench.workload]].run : mark-time bench.run.end : bench.record
+flow = mark-time bench.run.start : [[bench.workload]].run : mark-time bench.run.end : bench.record : bench.record.show
 
 [env]
 bench.workload = read
 bench.run.start = write
 bench.run.end = write
-
-[val2env]
-bench.run.end = n/a
-bench.run.log = n/a
-bench.run.score = n/a
-bench.run.start = n/a

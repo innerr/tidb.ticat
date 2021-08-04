@@ -1,9 +1,9 @@
-help = load tpcc data, then run tpcc with different threads and versions, data will be reset in each run \
+help = load tpcc data, then run tpcc with different threads and versions, data will be reset in each version \
 	args 'threads' and 'versions' could be values seperated by ',' or a single value
 
-abbr = jt.tpcc.version-thread|v-t
+abbr = jt.tpcc.version-xthread|v-xt
 
-flow = bench.meta.local.new-port+100 : bench.prepare : bench.versions.cmp bench.threads.cmp : db.rm : bench.record.show
+flow = bench.meta.local.new-port+100 : bench.prepare : bench.versions.restore+cmp bench.threads.cmp : db.rm : bench.record.show
 
 [arg]
 tiup-yaml-path-or-predefined-name|yaml = test
@@ -32,3 +32,4 @@ bench.compare.versions = versions
 [val2env]
 bench.workload = tpcc
 tidb.op.confirm = no
+bench.compare.threads.sub-flow = bench.run
