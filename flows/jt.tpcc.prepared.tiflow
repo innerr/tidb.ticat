@@ -1,7 +1,7 @@
 help = run tpcc benchmark on already loaded and backuped data
 abbr = jt.tpcc.loaded
 
-flow = bench.meta.local.new-port+100 : tidb.yaml.template : bench.restore : bench.run : db.rm : bench.record.show
+flow = bench.meta.local.new-port+100 : tidb.yaml.template : bench.restore : bench.run+record : db.rm : bench.record.show
 
 [arg]
 tiup-yaml-path-or-predefined-name|yaml = test

@@ -32,4 +32,4 @@ bench.compare.versions = versions
 [val2env]
 bench.workload = tpcc
 tidb.op.confirm = no
-bench.compare.threads.sub-flow = bench.run
+bench.compare.threads.sub-flow = bench.run+record

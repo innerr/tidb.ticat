@@ -1,6 +1,6 @@
 help = run workload and record the result to meta db
 
-flow = mark-time bench.run.start : [[bench.workload]].run : mark-time bench.run.end : bench.record : bench.record.show
+flow = mark-time bench.run.start : [[bench.workload]].run : mark-time bench.run.end
 
 [env]
 bench.workload = read
