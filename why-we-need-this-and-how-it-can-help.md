@@ -1,5 +1,7 @@
-# Why this is needed
-The generalized TiDB system include many dimensions:
+# TiDB on TiCat: Why it is Needed
+
+## The issue
+The TiDB system include many dimensions:
 * Cluster hardwares and topologies
 * Cluster maintenances: deploy, stop, start, scale in/out
 * Data migrating
@@ -10,26 +12,27 @@ The generalized TiDB system include many dimensions:
 It's hard to cover all casts since the possible collection set is huge from these dimensions multiply together.
 
 TiDB developing uses an automatic centerized-integrating procedure to ensure the production quality and performance,
-that could only cover the typical usages.
+that could only cover some typical usages, far from a decent benchmark.
 
-This compromised both costs and qualities in developing.
+This compromised both costs and qualities in TiDB developing.
 
-# How it improve things
-By using [ticat](https://github.com/innerr/ticat), any utilities/tools could easily wrap into components.
+## The cure
+By using [ticat](https://github.com/innerr/ticat), any utilities/tools could easily wrap into components(aka, modules).
 All components seamlessly work togather, form a full-featured system.
 
 To maximize the ability and efficiency of TiDB non-production activities,
 We adopt the most aggressive approach: ad-hot feature assembling.
 
-That means a developer could select the necessary components on site,
+That means a developer could select the necessary components based on on-site purpose,
 concate them into a workflow (like unix-pipe), then get the job done (faster and better).
 
 Even more, the assembled workflows could be easily shared to others,
-so anyone could benefit from this, even they know nothing of this project.
+so anyone could benefit from this, even they know nothing of [ticat](https://github.com/innerr/ticat).
 
 By breaking centerized-integration into perpendicular components,
-have the potential to cover all casts.
+we have the potential to cover all casts.
 By the end-user assembling, we get a powerful yet flexable system.
+
 
 # Build a better TiDB ecosystem with ticat
 
@@ -40,7 +43,7 @@ all things **in** it are expected to be well designed and tested.
 
 Take "auto deployment" as an example,
 anyone proposal this will encounter lots of questions from PMG (product manage group):
-* Any product level cluster should be carefully check about the topology, Why we need it?
+* Any product level cluster should be carefully check about the topology, why we need it?
 * What hardwares should we support?
 * What OS should we support
 * ...
@@ -54,18 +57,18 @@ But as TiDB developers we deploy clusters a lot,
 smart guys write "quick and dirty" scripts to solve that. Or not, that's worse.
 
 This is the problem we have, inside the core-system everything is (fairly) tidy and clean,
-outside is out of control, each developer/user fights alone.
+outside of it things are out of control, each developer/user fights alone.
 
 ## Rock with ticat
 With **ticat** a workflow is a pipeline like `<get hardware resource> : <deploy TiDB> : <run tpcc>`,
-we don't need a well implement "auto deploy" tool,
+we don't need a well implemented "auto deploy" tool,
 it could be the "quick and dirty" scripts wrapped as a component,
 typically could be a yaml config template for 1PD-1TiDB-3TiKV deployment.
 
 The ad-hot assembling let end-user to select the suitable deployer,
 user get it from others by adding git repo to **ticat**,
 if it works fine that's great, if not, user could improve it by forking the repo,
-re-share it by telling others the repo address.
+then re-share the repo address.
 
 Here is something great with **ticat**:
 * No publish center, anyone could be a publish center, code could be shared and execute without approvement from authority.
