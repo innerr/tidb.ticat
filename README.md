@@ -6,7 +6,7 @@ hence we could efficiently build a stronger TiDB, and make a better community.
 
 [Why we need this and how it can help](./why-we-need-this-and-how-it-can-help.md)
 
-## Build (or download, TODO: put release link here) ticat
+## Build (or download) ticat
 `golang` is needed:
 ```
 $> git clone https://github.com/innerr/ticat
@@ -41,15 +41,6 @@ $> ticat dbg.delay 3 : jt.tpcc
 Load and run TPCC, with yaml file:
 ```
 $> ticat jt.tpcc yaml=<tiup-yaml-file-path>
-```
-
-Load TPCC data, then run bench: (the `yaml` file is predefined, deploy on local host)
-```
-$> ticat jt.tpcc
-```
-Load TPCC data, then run bench:
-```
-$> ticat jt.tpcc
 ```
 
 Load TPCC with 2 warehouses, then run bench with 4 threads:
@@ -97,17 +88,17 @@ Check out all score records
 $> ticat jt.meta.record
 ```
 
-Show usage of a command:
+Show usage of a command with `:=`:
 ```
 $> ticat jt.tpcc.t-v :=
 ```
 
-Show full info of a command:
+Show full info of a command with `:==`:
 ```
 $> ticat jt.tpcc.t-v :==
 ```
 
-All out-of-box commands are in the command path `jt`, to show them all:
+All out-of-box commands are in the command path `jt`, use `:-` to show them all:
 ```
 $> ticat jt :-
 ```
