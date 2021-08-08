@@ -1,0 +1,12 @@
+help = restore prepared data, then run bench witout reset data many times with different threads
+abbr = compare.restore+thread|r+t
+flow = bench.restore : compare.threads
+
+[arg]
+threads|t|T = 1,2
+
+[arg2env]
+bench.compare.threads = threads
+
+[val2env]
+bench.compare.threads.sub-flow = compare.one.run

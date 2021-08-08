@@ -1,2 +1,0 @@
-help = start meta db and show all score records
-flow = bench.meta.local.new-port+100 : bench.record.show

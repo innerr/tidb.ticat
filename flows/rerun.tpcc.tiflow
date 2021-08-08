@@ -1,7 +1,8 @@
 help = run tpcc benchmark on already loaded and backuped data
-abbr = jt.tpcc.loaded
+abbr = rr.tpcc
+tags = out-of-the-box
 
-flow = bench.meta.local.new-port+100 : tidb.yaml.template : bench.restore : bench.run+record : db.rm : bench.record.show
+flow = bench.meta.100 : tidb.yaml.template : bench.restore : bench.run : db.rm : bench.record.show
 
 [arg]
 tiup-yaml-path-or-predefined-name|yaml = test
@@ -10,6 +11,12 @@ run-duration|duration|dur = 1m
 threads|thread|thrd|thd|t|T = 1
 version|ver|v|V = nightly
 cluster-name|cluster = tpcc-bench
+execute-delay|delay = ''
+
+[val2env]
+bench.workload = tpcc
+tidb.op.confirm = no
+sys.execute-delay-sec = 2
 
 [arg2env]
 tidb.tiup.yaml.predefined = tiup-yaml-path-or-predefined-name
@@ -20,6 +27,4 @@ bench.tpcc.warehouses = warehouses
 bench.tpcc.duration = run-duration
 bench.tpcc.threads = threads
 
-[val2env]
-bench.workload = tpcc
-tidb.op.confirm = no
+sys.execute-delay-sec = execute-delay

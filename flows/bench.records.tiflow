@@ -1,0 +1,12 @@
+help = show all score records
+flow = bench.record.show
+
+[arg]
+host|h|H = 127.0.0.1
+port|p|P = 4100
+db-name|db = bench_meta
+
+[arg2env]
+bench.meta.host = host
+bench.meta.port = port
+bench.meta.db-name = db-name

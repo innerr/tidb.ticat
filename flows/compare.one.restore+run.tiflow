@@ -1,0 +1,9 @@
+help = restore prepared data to cluster, then run bench
+abbr = cmp.one.r+run|r+r
+flow = bench.restore : [[bench.run-flow]]
+
+[arg]
+run-flow = bench.run
+
+[arg2env]
+bench.run-flow = run-flow

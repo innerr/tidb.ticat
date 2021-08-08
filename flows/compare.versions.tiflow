@@ -1,10 +1,10 @@
-help = compare bench result of different versions in a list seperated by ','
-abbr = bench.versions.cmp
+help = multiply bench by version list (seperated by ',')
+abbr = compare.ver|v|V
 
 flow = ** tidb.config.version [[*bench.compare.versions*]] : [[bench.compare.versions.sub-flow]] : **
 
 [arg]
-sub-flow|sub = bench.restore+run
+sub-flow|sub = compare.one.restore+run
 versions|v|V = v5.1.0,nightly
 
 [env]

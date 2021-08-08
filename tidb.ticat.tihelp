@@ -1,0 +1,60 @@
+TiDB on ticat: workflow automating in unix-pipe style
+
+Make sure [color=term-28]`tiup`[/color] and [color=term-28]`mysql client`[/color] are installed.
+
+Simple load and run:
+    [color=term-27]Load TPCC data, then run bench, the yaml file is predefined:[/color]
+        [color=term-130]$>[/color] [color=term-76]ticat run.tpcc[/color]
+    [color=term-27]Specify the yaml file and other args:[/color]
+        [color=term-130]$>[/color] [color=term-76]ticat run.tpcc yaml=<tiup-yaml-file-path> wh=2 thread=4[/color]
+    [color=term-27]Show all bench results:[/color]
+        [color=term-130]$>[/color] [color=term-76]ticat bench.records[/color]
+
+Load once, run many times and compare results:
+    [color=term-27]Load and run TPCC, compare v5.1.0 and nightly, reset data on each run:[/color]
+        [color=term-130]$>[/color] [color=term-76]ticat run.tpcc.versions-threads versions=v5.1.0,nightly threads=4,8[/color]
+    [color=term-27]Same as above one, in short form, threads on top of versions:[/color]
+        [color=term-130]$>[/color] [color=term-76]ticat run.tpcc.t-v v=v5.1.0,nightly t=4,8[/color]
+    [color=term-27]Similiar with above one, version on top of threads:[/color]
+        [color=term-130]$>[/color] [color=term-76]ticat run.tpcc.v-t v=v5.1.0,nightly t=4,8[/color]
+    [color=term-27]Based on nightly and replace tikv(or other found modules) with local binary:[/color]
+        [color=term-130]$>[/color] [color=term-76]ticat run.tpcc.t-v v=nightly,nightly[/color][color=term-46]+[/color][color=term-76]./bin t=4,8[/color]
+
+Usage of ticat-pipe:
+    [color=term-27]Confirm on each step:[/color]
+        [color=term-130]$>[/color] [color=term-76]ticat dbg.step : bench.tpcc[/color]
+    [color=term-27]Change delay seconds on each step:[/color]
+        [color=term-130]$>[/color] [color=term-76]ticat dbg.delay 10 : bench.tpcc[/color]
+    [color=term-27]Show usage of a command, use :== to show more info:[/color]
+        [color=term-130]$>[/color] [color=term-76]ticat run.tpcc.t-v :=[/color]
+    [color=term-27]Dry run and check steps, use :+ to show more info:[/color]
+        [color=term-130]$>[/color] [color=term-76]ticat run.tpcc.t-v :-[/color]
+
+Advance usage:
+    [color=term-27]A simple flow is like this, config tidb and workload, then run bench:[/color]
+        [color=term-130]$>[/color] [color=term-76]ticat tidb.conf cluster=my-test yaml=my.yaml : tpcc.conf wh=10 : bench.prepare : bench.run[/color]
+    [color=term-27]We can add more commands in this pipe, for example:[/color]
+        [color=term-27]- sleep a while after bench.prepare to waiting for compaction[/color]
+        [color=term-27]- scan jitter after bench.run[/color]
+        [color=term-27]- not pass arg yaml to tidb.conf, but add an auto-deploying command in front of it[/color]
+
+    [color=term-27]If a meta db is specified, the bench result could be write to a table:[/color]
+        [color=term-130]$>[/color] [color=term-76]ticat tidb.conf cluster=my-test yaml=my.yaml : tpcc.conf wh=10 : bench.prepare : bench.run : \[/color]
+           [color=term-76]bench.meta h=localhost p=4100 : bench.record[/color]
+
+    [color=term-27]To bench different versions or threads, use commands in compare.*:[/color]
+        [color=term-130]$>[/color] [color=term-76]ticat tidb.conf cluster=my-test yaml=my.yaml : tpcc.conf wh=10 : \[/color]
+           [color=term-76]cmp.ver.conf v5.1.0,nightly : cmp.thread.conf 1,2,4,8 : cmp.thread cmp.ver[/color]
+    [color=term-27]What 'cmp.thread cmp.ver' means:[/color]
+        [color=term-27]- [/color][color=term-28]cmp.thread cmp.ver[/color][color=term-27]: run bench with different versions on each thread number[/color]
+        [color=term-27]- [/color][color=term-28]cmp.ver cmp.thread[/color][color=term-27]: run bench with different threads on each version[/color]
+        [color=term-27]- [/color][color=term-28]cmp.ver cmp.xthread[/color][color=term-27]: similiar with above one, not reset data on each version[/color]
+
+    [color=term-27]Notice that there are some alias in examples, 'cmp.thread' and 'compare.threads' and 'cmp.t' are the same.[/color]
+
+    [color=term-27]A tag system is being built to locate the needed commands, before that, we could find commands like:[/color]
+        [color=term-130]$>[/color] [color=term-76]ticat str1 str2 str3 :-[/color]
+
+More ticat usage:
+    [color=term-27]Visit https://github.com/innerr/ticat for details, or show the cheatsheet:[/color]
+        [color=term-130]$>[/color] [color=term-28]ticat help.self[/color]

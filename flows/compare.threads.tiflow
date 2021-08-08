@@ -1,10 +1,10 @@
-help = compare bench result of different threads in a list seperated by ','
-abbr = bench.threads.cmp
+help = multiply bench by threads list (seperated by ',')
+abbr = compare.thread|thrd|t|T
 
 flow = **[[bench.workload]].config.threads [[*bench.compare.threads*]] : [[bench.compare.threads.sub-flow]] : **
 
 [arg]
-sub-flow|sub = bench.restore+run
+sub-flow|sub = compare.one.restore+run
 threads|t|T = 1,2
 
 [arg2env]

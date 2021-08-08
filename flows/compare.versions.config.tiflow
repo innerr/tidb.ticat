@@ -1,0 +1,9 @@
+help = config for command 'compare.threads'
+tags = config
+abbr = compare.versions.conf
+
+[arg]
+versions|version|ver|v|V = v5.1.0,nightly
+
+[arg2env]
+bench.compare.versions = versions

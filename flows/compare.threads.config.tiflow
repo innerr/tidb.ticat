@@ -1,0 +1,9 @@
+help = config for command 'compare.threads'
+tags = config
+abbr = compare.threads.conf
+
+[arg]
+threads|thread|thrd|thd|t|T = 1,2
+
+[arg2env]
+bench.compare.threads = threads

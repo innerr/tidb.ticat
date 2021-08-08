@@ -1,0 +1,11 @@
+help = quick test
+tags = selftest
+
+flow =                                                                     \
+	run.tpcc : rerun.tpcc :                                                \
+	run.tpcc.t-v : rerun.tpcc.t-v :                                        \
+	{bench.compare.threads.sub-flow=-- bench.compare.versions.sub-flow=--} \
+	run.tpcc.v-t : rerun.tpcc.v-t :                                        \
+	{bench.compare.threads.sub-flow=-- bench.compare.versions.sub-flow=--} \
+	run.tpcc.v-xt : rerun.tpcc.v-xt :                                      \
+	dbg.echo done

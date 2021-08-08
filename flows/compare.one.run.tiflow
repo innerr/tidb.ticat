@@ -1,0 +1,8 @@
+help = restore prepared data to cluster, then run bench
+flow = [[bench.run-flow]]
+
+[arg]
+run-flow = bench.run
+
+[arg2env]
+bench.run-flow = run-flow

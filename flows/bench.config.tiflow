@@ -1,8 +1,9 @@
-help = config workload multiplications
+help = setup/change run-flow(one command) for bench
+tags = config
 abbr = bench.conf
 
 [arg]
-run-flow|run = bench.restore+run
+run-flow|run = bench.run
 
 [arg2env]
 bench.run-flow = run-flow

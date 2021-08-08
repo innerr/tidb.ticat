@@ -1,9 +1,10 @@
 help = load tpcc data, then run tpcc with different threads and versions, data will be reset in each version \
 	args 'threads' and 'versions' could be values seperated by ',' or a single value
 
-abbr = jt.tpcc.version-xthread|v-xt
+tags = out-of-the-box
+abbr = run.tpcc.version-xthread|ver-xthrd|v-xt|v-x-t
 
-flow = bench.meta.local.new-port+100 : bench.prepare : bench.versions.restore+cmp bench.threads.cmp : db.rm : bench.record.show
+flow = bench.meta.100 : bench.prepare : compare.versions compare.restore+threads : db.rm : bench.record.show
 
 [arg]
 tiup-yaml-path-or-predefined-name|yaml = test
@@ -16,6 +17,12 @@ versions|version|ver|v|V = v5.1.0,nightly
 load-data-version|load-version|ldv = v5.1.0
 
 cluster-name|cluster = tpcc-bench
+execute-delay|delay = ''
+
+[val2env]
+bench.workload = tpcc
+tidb.op.confirm = no
+sys.execute-delay-sec = 2
 
 [arg2env]
 tidb.tiup.yaml.predefined = tiup-yaml-path-or-predefined-name
@@ -29,7 +36,4 @@ bench.tpcc.load.threads = load-threads
 bench.compare.threads = threads
 bench.compare.versions = versions
 
-[val2env]
-bench.workload = tpcc
-tidb.op.confirm = no
-bench.compare.threads.sub-flow = bench.run+record
+sys.execute-delay-sec = execute-delay
