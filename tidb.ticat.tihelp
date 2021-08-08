@@ -42,7 +42,7 @@ Advance usage:
         [color=term-130]$>[/color] [color=term-76]ticat tidb.conf cluster=my-test yaml=my.yaml : tpcc.conf wh=10 : bench.prepare : bench.run : \[/color]
            [color=term-76]bench.meta h=localhost p=4100 : bench.record[/color]
 
-    [color=term-27]To bench different versions or threads, use commands in compare.*:[/color]
+    [color=term-27]To bench different versions or threads, use commands in cmp.*:[/color]
         [color=term-130]$>[/color] [color=term-76]ticat tidb.conf cluster=my-test yaml=my.yaml : tpcc.conf wh=10 : \[/color]
            [color=term-76]cmp.ver.conf v5.1.0,nightly : cmp.thread.conf 1,2,4,8 : cmp.thread cmp.ver[/color]
     [color=term-27]What 'cmp.thread cmp.ver' means:[/color]

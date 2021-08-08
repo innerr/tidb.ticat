@@ -23,87 +23,92 @@ $> ticat hub.add innerr/tidb.ticat
 ## Usage
 Make sure `tiup` and `mysql client` are installed.
 
-Load TPCC data, then run bench: (the `yaml` file is predefined, deploy on local host)
+### Simple load and run:
+Load TPCC data, then run bench, the yaml file is predefined:
 ```
-$> ticat jt.tpcc
-```
-
-Load and run TPCC, confirm on each step:
-```
-$> ticat dbg.step : jt.tpcc
+$> ticat run.tpcc
 ```
 
-Load and run TPCC, delay 3 seconds on each step:
+Specify the yaml file and other args:
 ```
-$> ticat dbg.delay 3 : jt.tpcc
-```
-
-Load and run TPCC, with yaml file:
-```
-$> ticat jt.tpcc yaml=<tiup-yaml-file-path>
+$> ticat run.tpcc yaml=<tiup-yaml-file-path> wh=2 thread=4
 ```
 
-Load TPCC with 2 warehouses, then run bench with 4 threads:
+Show all bench results:
 ```
-$> ticat jt.tpcc wh=2 thread=4
-```
-
-Run TPCC with 4 threads, with pre-loaded data: (after running `jt.tpcc wh=2`)
-```
-$> ticat jt.tpcc.prepared wh=2 thread=4
-```
-The score will be put into a table in a local meta db, all scores will show when bench finish.
-
-Load and run TPCC, compare versions `v5.1.0` and `nightly`, reset data on each run:
-```
-$> ticat jt.tpcc.v-t versions=v5.1.0,nightly threads=4
+$> ticat bench.records
 ```
 
-Load and run TPCC, compare `thread=4` and `=8`,
-each thread runs two versions (`v5.1.0` and `nightly`), reset data on each run:
+###Load once, run many times and compare results:
+Load and run TPCC, compare v5.1.0 and nightly, reset data on each run:
 ```
-$> ticat jt.tpcc.t-v versions=v5.1.0,nightly threads=4,8
-```
-
-Load and run TPCC, compare versions `v5.1.0` and `nightly`,
-each version runs two times (thread=4 and =8), reset data on each run:
-```
-$> ticat jt.tpcc.v-t versions=v5.1.0,nightly threads=4,8
+$> ticat run.tpcc.versions-threads versions=v5.1.0,nightly threads=4,8
 ```
 
-Load and run TPCC, compare versions `v5.1.0` and `nightly`,
-each version runs two times (thread=4 and =8), NOT reset data on the same version:
+Same as above one, in short form, threads on top of versions:
 ```
-$> ticat jt.tpcc.v-xt versions=v5.1.0,nightly threads=4,8
-```
-
-Load and run TPCC, compare version `nightly` and a developing version:
-based on `nightly` and replace tikv(or pd, tidb) with `local built binary`:
-```
-$> ticat jt.tpcc.t-v versions=nightly,nightly+./bin threads=4,8
+$> ticat run.tpcc.t-v v=v5.1.0,nightly t=4,8
 ```
 
-Check out all score records
+Similiar with above one, version on top of threads:
 ```
-$> ticat jt.meta.record
-```
-
-Show usage of a command with `:=`:
-```
-$> ticat jt.tpcc.t-v :=
+$> ticat run.tpcc.v-t v=v5.1.0,nightly t=4,8
 ```
 
-Show full info of a command with `:==`:
+Based on nightly and replace tikv(or other found modules) with local binary:
 ```
-$> ticat jt.tpcc.t-v :==
-```
-
-All out-of-box commands are in the command path `jt`, use `:-` to show them all:
-```
-$> ticat jt :-
+$> ticat run.tpcc.t-v v=nightly,nightly+./bin t=4,8
 ```
 
-(TODO: support more workloads, the roadmap is here: [Architecture, roadmap and progress](./architecture-roadmap-progress.md))
+###Usage of ticat-pipe:
+Confirm on each step:
+```
+$> ticat dbg.step : bench.tpcc
+```
+
+Change delay seconds on each step:
+```
+$> ticat dbg.delay 10 : bench.tpcc
+```
+
+Show usage of a command, use :== to show more info:
+```
+$> ticat run.tpcc.t-v :=
+```
+
+Dry run and check steps, use :+ to show more info:
+```
+$> ticat run.tpcc.t-v :-
+```
+
+###Advance usage:
+A simple flow is like this, config tidb and workload, then run bench:
+```
+$> ticat tidb.conf cluster=my-test yaml=my.yaml : tpcc.conf wh=10 : bench.prepare : bench.run
+```
+We can add more commands in this pipe, for example:
+- sleep a while after bench.prepare to waiting for compaction
+- scan jitter after bench.run
+- not pass arg yaml to tidb.conf, but add an auto-deploying command in front of it
+
+If a meta db is specified, the bench result could be write to a table:
+```
+$> ticat tidb.conf cluster=my-test yaml=my.yaml : tpcc.conf wh=10 : bench.prepare : bench.run : bench.meta h=localhost p=4100 : bench.record
+```
+
+To bench different versions or threads, use commands in `cmp.*`:
+```
+$> ticat tidb.conf cluster=my-test yaml=my.yaml : tpcc.conf wh=10 : cmp.ver.conf v5.1.0,nightly : cmp.thread.conf 1,2,4,8 : cmp.thread cmp.ver
+```
+What 'cmp.thread cmp.ver' means:
+- cmp.thread cmp.ver: run bench with different versions on each thread number
+- cmp.ver cmp.thread: run bench with different threads on each version
+- cmp.ver cmp.xthread: similiar with above one, not reset data on each version
+
+Notice that there are some alias in examples, 'cmp.thread' and 'compare.threads' and 'cmp.t' are the same.
+
+##Roadmap
+[Architecture, roadmap and progress](./architecture-roadmap-progress.md))
 
 ## Advance usage
 This repo is a package of many **ticat** components(modules),
