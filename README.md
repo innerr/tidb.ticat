@@ -39,7 +39,7 @@ Show all bench results:
 $> ticat bench.records
 ```
 
-###Load once, run many times and compare results:
+### Load once, run many times and compare results:
 Load and run TPCC, compare v5.1.0 and nightly, reset data on each run:
 ```
 $> ticat run.tpcc.versions-threads versions=v5.1.0,nightly threads=4,8
@@ -60,7 +60,7 @@ Based on nightly and replace tikv(or other found modules) with local binary:
 $> ticat run.tpcc.t-v v=nightly,nightly+./bin t=4,8
 ```
 
-###Usage of ticat-pipe:
+### Usage of ticat-pipe:
 Confirm on each step:
 ```
 $> ticat dbg.step : bench.tpcc
@@ -71,17 +71,17 @@ Change delay seconds on each step:
 $> ticat dbg.delay 10 : bench.tpcc
 ```
 
-Show usage of a command, use :== to show more info:
+Show usage of a command, use `:==` to show more info:
 ```
 $> ticat run.tpcc.t-v :=
 ```
 
-Dry run and check steps, use :+ to show more info:
+Dry run and check steps, use `:+` to show more info:
 ```
 $> ticat run.tpcc.t-v :-
 ```
 
-###Advance usage:
+### Advance usage:
 A simple flow is like this, config tidb and workload, then run bench:
 ```
 $> ticat tidb.conf cluster=my-test yaml=my.yaml : tpcc.conf wh=10 : bench.prepare : bench.run
@@ -93,12 +93,15 @@ We can add more commands in this pipe, for example:
 
 If a meta db is specified, the bench result could be write to a table:
 ```
-$> ticat tidb.conf cluster=my-test yaml=my.yaml : tpcc.conf wh=10 : bench.prepare : bench.run : bench.meta h=localhost p=4100 : bench.record
+$> ticat tidb.conf cluster=my-test yaml=my.yaml : tpcc.conf wh=10 : bench.prepare : bench.run : \
+   bench.meta h=localhost p=4100 : bench.record
 ```
 
 To bench different versions or threads, use commands in `cmp.*`:
 ```
-$> ticat tidb.conf cluster=my-test yaml=my.yaml : tpcc.conf wh=10 : cmp.ver.conf v5.1.0,nightly : cmp.thread.conf 1,2,4,8 : cmp.thread cmp.ver
+$> ticat tidb.conf cluster=my-test yaml=my.yaml : tpcc.conf wh=10 : \
+   cmp.ver.conf v5.0.0,v5.1.0 : cmp.thread.conf 4,8 : \
+   cmp.thread cmp.ver
 ```
 What 'cmp.thread cmp.ver' means:
 - cmp.thread cmp.ver: run bench with different versions on each thread number
@@ -107,8 +110,8 @@ What 'cmp.thread cmp.ver' means:
 
 Notice that there are some alias in examples, 'cmp.thread' and 'compare.threads' and 'cmp.t' are the same.
 
-##Roadmap
-[Architecture, roadmap and progress](./architecture-roadmap-progress.md))
+## Roadmap
+[Architecture, roadmap and progress](./architecture-roadmap-progress.md)
 
 ## Advance usage
 This repo is a package of many **ticat** components(modules),
