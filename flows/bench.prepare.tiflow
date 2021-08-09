@@ -3,7 +3,8 @@ abbr = bench.pp
 
 flow = \
 	tidb.destroy : tidb.new : [[bench.workload]].load : tidb.stop : \
-	[[bench.workload]].gen-backup-tag : tidb.backup.backup
+	[[bench.workload]].gen-tag : tidb.backup.gen-tag : tidb.backup.backup
 
 [env]
 bench.workload = read
+tidb.backup.tag-from = workload-name,workload-tag

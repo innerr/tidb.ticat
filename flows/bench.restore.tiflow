@@ -1,6 +1,6 @@
 help = restore workload data to cluster
 
-flow = tidb.rm : tidb.deploy : [[bench.workload]].gen-backup-tag : tidb.backup.restore : tidb.start
+flow = tidb.rm : tidb.deploy : tidb.backup.restore : tidb.start
 
 [env]
 bench.workload = read
