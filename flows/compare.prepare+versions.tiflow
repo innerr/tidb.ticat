@@ -1,0 +1,16 @@
+help = prepare data, then run bench on each vesion
+abbr = compare.prepare+version|pre+ver|p+v
+
+flow = ** tidb.config.version [[*bench.compare.versions*]] : bench.prepare : [[bench.compare.versions.sub-flow]] : **
+
+[arg]
+sub-flow|sub = compare.one.restore+run
+versions|v|V = v5.1.0,nightly
+
+[env]
+bench.compare.versions = read
+bench.compare.versions.sub-flow = read
+
+[arg2env]
+bench.compare.versions = versions
+bench.compare.versions.sub-flow = sub-flow

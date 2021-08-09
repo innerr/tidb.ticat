@@ -1,18 +1,18 @@
-help = run tpcc with different threads and versions, data will be reset in each run \
-	args 'threads' and 'versions' could be values seperated by ',' or a single value
+help = same as run.tpcc.versions-xthreads, but support incompatible versions by loading data independently
 
 tags = out-of-the-box
-abbr = rerun.tpcc.version-thread|ver-thrd|v-t
+abbr = run.tpcc.iversion-xthread|iver-xthrd|iv-xt
 
-flow = bench.meta.100 : tidb.yaml.template : compare.versions compare.threads : db.rm : bench.record.show
+flow = bench.meta.100 : compare.prepare+versions compare.restore+threads : db.rm : bench.record.show
 
 [arg]
 tiup-yaml-path-or-predefined-name|yaml = test
 warehouses|warehouse|wh = 1
 run-duration|duration|dur = 1m
+load-threads|load-thread|load|lt = 1
 
 threads|thread|thrd|thd|t|T = 1,2
-versions|version|ver|v|V = v5.1.0,nightly
+versions|version|ver|v|V = v3.0.20,v4.0.9,v5.1.0
 
 cluster-name|cluster = bench-tpcc
 execute-delay|delay = ''
@@ -28,6 +28,7 @@ tidb.cluster = cluster-name
 
 bench.tpcc.warehouses = warehouses
 bench.tpcc.duration = run-duration
+bench.tpcc.load.threads = load-threads
 
 bench.compare.threads = threads
 bench.compare.versions = versions

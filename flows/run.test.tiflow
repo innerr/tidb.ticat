@@ -8,4 +8,8 @@ flow =                                                                     \
 	run.tpcc.v-t : rerun.tpcc.v-t :                                        \
 	{bench.compare.threads.sub-flow=-- bench.compare.versions.sub-flow=--} \
 	run.tpcc.v-xt : rerun.tpcc.v-xt :                                      \
+	{bench.compare.threads.sub-flow=-- bench.compare.versions.sub-flow=--} \
+	run.tpcc.iv-t : rerun.tpcc.iv-t :                                      \
+	{bench.compare.threads.sub-flow=-- bench.compare.versions.sub-flow=--} \
+	run.tpcc.iv-xt : rerun.tpcc.iv-xt :                                    \
 	dbg.echo done

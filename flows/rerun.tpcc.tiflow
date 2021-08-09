@@ -10,7 +10,7 @@ warehouses|warehouse|wh = 1
 run-duration|duration|dur = 1m
 threads|thread|thrd|thd|t|T = 1
 version|ver|v|V = nightly
-cluster-name|cluster = tpcc-bench
+cluster-name|cluster = bench-tpcc
 execute-delay|delay = ''
 
 [val2env]
