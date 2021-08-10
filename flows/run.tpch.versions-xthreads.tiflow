@@ -1,0 +1,39 @@
+help = load tpch data, then run tpch with different threads and versions, data will be reset in each version \
+	args 'threads' and 'versions' could be values seperated by ',' or a single value
+
+tags = out-of-the-box
+abbr = run.tpch.version-xthread|ver-xthrd|v-xt|v-x-t
+
+flow = bench.meta.100 : bench.prepare : compare.versions compare.restore+threads : db.rm : bench.record.show
+
+[arg]
+tiup-yaml-path-or-predefined-name|yaml = test
+scale-factor|sf = 1
+run-duration|duration|dur = 1m
+load-threads|load-thread|load|lt = 1
+
+threads|thread|thrd|thd|t|T = 1,2
+versions|version|ver|v|V = v5.1.0,nightly
+load-data-version|load-version|ldv = v5.1.0
+
+cluster-name|cluster = tpch-bench
+execute-delay|delay = ''
+
+[val2env]
+bench.workload = tpch
+tidb.op.confirm = no
+sys.execute-delay-sec = 2
+
+[arg2env]
+tidb.tiup.yaml.predefined = tiup-yaml-path-or-predefined-name
+tidb.cluster = cluster-name
+tidb.version = load-data-version
+
+bench.tpch.scale-factor = scale-factor
+bench.tpch.duration = run-duration
+bench.tpch.load.threads = load-threads
+
+bench.compare.threads = threads
+bench.compare.versions = versions
+
+sys.execute-delay-sec = execute-delay
