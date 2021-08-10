@@ -1,0 +1,4 @@
+help = a group of compare commands in the pipe have status in env \
+	reseting the status is needed to start another group of compare commands
+
+flow = {bench.compare.threads.sub-flow=-- bench.compare.versions.sub-flow=-- bench.run-flow=--}

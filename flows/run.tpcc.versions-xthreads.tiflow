@@ -16,7 +16,7 @@ threads|thread|thrd|thd|t|T = 1,2
 versions|version|ver|v|V = v5.1.0,nightly
 load-data-version|load-version|ldv = v5.1.0
 
-cluster-name|cluster = tpcc-bench
+cluster-name|cluster = bench-tpcc
 execute-delay|delay = ''
 
 [val2env]

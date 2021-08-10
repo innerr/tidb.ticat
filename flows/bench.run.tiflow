@@ -1,5 +1,4 @@
 help = run workload and record the result to meta db
-tags = tidb run-workload
 flow = bench.run.workload : bench.record : bench.record.show
 
 [arg]
