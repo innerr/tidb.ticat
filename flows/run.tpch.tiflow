@@ -12,7 +12,7 @@ load-threads|load-thread|load|lt = 1
 threads|thread|thrd|thd|t|T = 1
 version|ver|v|V = nightly
 
-cluster-name|cluster = tpch-bench
+cluster-name|cluster = bench-tpch
 execute-delay|delay = ''
 
 [val2env]
