@@ -52,6 +52,9 @@ Advance usage:
         [color=term-27]- [/color][color=term-28]cmp.ver cmp.thread[/color][color=term-27]: run bench with different threads on each version[/color]
         [color=term-27]- [/color][color=term-28]cmp.ver cmp.xthread[/color][color=term-27]: similiar with above one, not reset data on each version[/color]
 
+    [color=term-27]The most useful config commands are [/color][color=term-28]tidb.conf[/color][color=term-27] and [/color][color=term-28]tpcc.conf[/color][color=term-27](or other workload names),[/color]
+    [color=term-27]different bench commands could be used after them.[/color]
+
     [color=term-27]Notice that there are some aliases in examples, 'cmp.thread' and 'compare.threads' and 'cmp.t' are the same.[/color]
 
     [color=term-27]A tag system is being built to locate the needed commands, before that, we could find commands like:[/color]

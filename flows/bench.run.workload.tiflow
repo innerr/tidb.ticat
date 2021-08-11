@@ -10,7 +10,7 @@ workload|wl = ''
 bench.run.start = n/a
 bench.run.end = n/a
 bench.run.log = n/a
-bench.run.score = n/a
+bench.run.score = -1
 
 [arg2env]
 bench.workload = workload
