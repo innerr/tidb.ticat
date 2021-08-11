@@ -1,0 +1,8 @@
+help = quick test
+tags = selftest
+
+flow = run.tpch : \
+	run.tpch.t-v   : compare.finish : \
+	run.tpch.v-t   : compare.finish : \
+	run.tpch.v-xt  : compare.finish : \
+	dbg.echo "tpch bench done"

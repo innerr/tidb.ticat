@@ -1,0 +1,4 @@
+help = quick selftest
+tags = selftest
+
+flow = selftest.run.tpch : selftest.run.tpcc : dbg.echo "all done"

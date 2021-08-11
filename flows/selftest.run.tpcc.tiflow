@@ -7,4 +7,4 @@ flow = run.tpcc : rerun.tpcc : \
 	run.tpcc.v-xt  : compare.finish : rerun.tpcc.v-xt  : compare.finish : \
 	run.tpcc.iv-t  : compare.finish : rerun.tpcc.iv-t  : compare.finish : \
 	run.tpcc.iv-xt : compare.finish : rerun.tpcc.iv-xt : compare.finish : \
-	dbg.echo done
+	dbg.echo "tpcc bench done"
