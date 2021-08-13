@@ -26,7 +26,7 @@ tidb.op.confirm = no
 sys.execute-delay-sec = 2
 
 [arg2env]
-tidb.tiup.yaml.predefined = tiup-yaml-path-or-predefined-name
+tidb.tiup.yaml = tiup-yaml-path-or-predefined-name
 tidb.cluster = cluster-name
 tidb.version = load-data-version
 tidb.compaction.wait.secs = compaction-wait-secs

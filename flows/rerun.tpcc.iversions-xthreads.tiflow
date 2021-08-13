@@ -3,7 +3,7 @@ help = same as rerun.tpcc.versions-xthreads, but support incompatible versions b
 tags = out-of-the-box
 abbr = rerun.tpcc.iversion-xthread|iver-xthrd|iv-xt
 
-flow = bench.meta.100 : tidb.yaml.template : compare.versions compare.threads : db.rm : bench.record.show
+flow = bench.meta.100 : tidb.yaml.predefined : compare.versions compare.threads : db.rm : bench.record.show
 
 [arg]
 tiup-yaml-path-or-predefined-name|yaml = test
@@ -23,7 +23,7 @@ tidb.op.confirm = no
 sys.execute-delay-sec = 2
 
 [arg2env]
-tidb.tiup.yaml.predefined = tiup-yaml-path-or-predefined-name
+tidb.tiup.yaml = tiup-yaml-path-or-predefined-name
 tidb.cluster = cluster-name
 
 bench.tpcc.warehouses = warehouses

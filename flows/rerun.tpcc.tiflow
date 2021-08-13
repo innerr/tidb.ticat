@@ -2,7 +2,7 @@ help = run tpcc benchmark on already loaded and backuped data
 abbr = rr.tpcc
 tags = out-of-the-box
 
-flow = bench.meta.100 : tidb.yaml.template : bench.restore : bench.run : db.rm : bench.record.show
+flow = bench.meta.100 : tidb.yaml.predefined : bench.restore : bench.run : db.rm : bench.record.show
 
 [arg]
 tiup-yaml-path-or-predefined-name|yaml = test
@@ -19,7 +19,7 @@ tidb.op.confirm = no
 sys.execute-delay-sec = 2
 
 [arg2env]
-tidb.tiup.yaml.predefined = tiup-yaml-path-or-predefined-name
+tidb.tiup.yaml = tiup-yaml-path-or-predefined-name
 tidb.cluster = cluster-name
 tidb.version = version
 
