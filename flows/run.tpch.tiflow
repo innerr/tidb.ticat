@@ -8,6 +8,7 @@ tiup-yaml-path-or-predefined-name|yaml = test-flash
 scale-factor|sf = 1
 run-duration|duration|dur = 1m
 load-threads|load-thread|load|lt = 1
+compaction-wait-secs|compaction-wait = 0
 
 threads|thread|thrd|thd|t|T = 1
 version|ver|v|V = nightly
@@ -24,6 +25,7 @@ sys.execute-delay-sec = 2
 tidb.tiup.yaml.predefined = tiup-yaml-path-or-predefined-name
 tidb.cluster = cluster-name
 tidb.version = version
+tidb.compaction.wait.secs = compaction-wait-secs
 
 bench.tpch.scale-factor = scale-factor
 bench.tpch.duration = run-duration

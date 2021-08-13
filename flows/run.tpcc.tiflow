@@ -11,6 +11,7 @@ load-threads|load-thread|load|lt = 1
 
 threads|thread|thrd|thd|t|T = 1
 version|ver|v|V = nightly
+compaction-wait-secs|compaction-wait = 0
 
 cluster-name|cluster = bench-tpcc
 execute-delay|delay = ''
@@ -24,6 +25,7 @@ sys.execute-delay-sec = 2
 tidb.tiup.yaml.predefined = tiup-yaml-path-or-predefined-name
 tidb.cluster = cluster-name
 tidb.version = version
+tidb.compaction.wait.secs = compaction-wait-secs
 
 bench.tpcc.warehouses = warehouses
 bench.tpcc.duration = run-duration

@@ -11,6 +11,7 @@ tiup-yaml-path-or-predefined-name|yaml = test
 warehouses|warehouse|wh = 1
 run-duration|duration|dur = 1m
 load-threads|load-thread|load|lt = 1
+compaction-wait-secs|compaction-wait = 0
 
 threads|thread|thrd|thd|t|T = 1,2
 versions|version|ver|v|V = v5.1.0,nightly
@@ -28,6 +29,7 @@ sys.execute-delay-sec = 2
 tidb.tiup.yaml.predefined = tiup-yaml-path-or-predefined-name
 tidb.cluster = cluster-name
 tidb.version = load-data-version
+tidb.compaction.wait.secs = compaction-wait-secs
 
 bench.tpcc.warehouses = warehouses
 bench.tpcc.duration = run-duration
