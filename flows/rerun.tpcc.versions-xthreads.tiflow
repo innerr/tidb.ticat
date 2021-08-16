@@ -17,6 +17,7 @@ cluster-name|cluster = bench-tpcc
 execute-delay|delay = ''
 
 [val2env]
+tidb.version.nightly-major = v5
 bench.workload = tpcc
 tidb.op.confirm = no
 bench.compare.threads.sub-flow = bench.run+record

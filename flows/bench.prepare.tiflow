@@ -3,15 +3,17 @@ abbr = bench.pp
 
 flow = \
 	tidb.destroy : tidb.new : [[bench.workload]].load : tidb.stop : \
-	[[bench.workload]].gen-tag : sleep [[tidb.compaction.wait.secs]] : tidb.backup.gen-tag : tidb.backup.backup
+	[[bench.workload]].gen-tag : sleep [[tidb.compaction.wait.secs]] : tidb.backup.gen-tag : [[tidb.backupper]].backup
 
 [arg]
 use-mv-instead-of-cp|use-mv|mv = true
 compaction-wait-secs|compaction-wait = 0
+backupper = tidb.ssh
 
 [arg2env]
 tidb.backup.use-mv = use-mv-instead-of-cp
 tidb.compaction.wait.secs = compaction-wait-secs
+tidb.backupper = backupper
 
 [env]
 bench.workload = read
