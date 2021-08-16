@@ -1,0 +1,5 @@
+help = config and set ssh-br as tidb backuper
+abbr = sbr.conf
+
+[val2env]
+tidb.backupper = ssh-br

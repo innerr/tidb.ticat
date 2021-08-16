@@ -1,14 +1,13 @@
 help = load workload data to a given empty cluster then do physical backup
 abbr = bench.pp
 
-flow = \
-	tidb.destroy : tidb.new : [[bench.workload]].load : tidb.stop : \
-	[[bench.workload]].gen-tag : sleep [[tidb.compaction.wait.secs]] : tidb.backup.gen-tag : [[tidb.backupper]].backup
+flow = tidb.destroy : tidb.new : [[bench.workload]].load : sleep [[tidb.compaction.wait.secs]] : \
+	[[bench.workload]].gen-tag : tidb.backup.gen-tag : [[tidb.backupper]].backup
 
 [arg]
 use-mv-instead-of-cp|use-mv|mv = true
 compaction-wait-secs|compaction-wait = 0
-backupper = tidb.ssh
+backupper = ssh-br
 
 [arg2env]
 tidb.backup.use-mv = use-mv-instead-of-cp
