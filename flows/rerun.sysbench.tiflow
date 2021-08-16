@@ -1,0 +1,35 @@
+help = run sysbench benchmark on already loaded and backuped data
+abbr = rr.sysbench|sb
+tags = out-of-the-box
+
+flow = bench.meta.100 : tidb.yaml.predefined : bench.restore : bench.run : db.rm : bench.record.show
+
+[arg]
+tiup-yaml-path-or-predefined-name|yaml = test
+tables|table|tb = 1
+table-size|size = 1000
+test-name|name = oltp_point_select
+
+run-duration-secs|run-duration|duration|secs|dur|sec = 60
+threads|thread|thrd|thd|t|T = 1
+version|ver|v|V = nightly
+cluster-name|cluster = bench-sysbench
+execute-delay|delay = ''
+
+[val2env]
+bench.workload = sysbench
+tidb.op.confirm = no
+sys.execute-delay-sec = 2
+
+[arg2env]
+tidb.tiup.yaml = tiup-yaml-path-or-predefined-name
+tidb.cluster = cluster-name
+tidb.version = version
+
+bench.sysbench.tables = tables
+bench.sysbench.table-size = table-size
+bench.sysbench.test-name = test-name
+bench.sysbench.duration = run-duration-secs
+bench.sysbench.threads = threads
+
+sys.execute-delay-sec = execute-delay
