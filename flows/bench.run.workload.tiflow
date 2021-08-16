@@ -1,13 +1,13 @@
 help = run workload and record the result to meta db
 abbr = bench.run.work
 
-flow = mark-time bench.run.start : [[bench.workload]].run : mark-time bench.run.end
+flow = mark-time bench.run.begin : [[bench.workload]].run : mark-time bench.run.end
 
 [arg]
 workload|wl = ''
 
 [val2env]
-bench.run.start = n/a
+bench.run.begin = n/a
 bench.run.end = n/a
 bench.run.log = n/a
 bench.run.score = -1
@@ -17,5 +17,5 @@ bench.workload = workload
 
 [env]
 bench.workload = read
-bench.run.start = write
+bench.run.begin = write
 bench.run.end = write
