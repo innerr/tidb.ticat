@@ -1,5 +1,6 @@
 help = run workload and record the result to meta db
-flow = bench.run.workload : bench.record : bench.record.show
+
+flow = bench.lib.run : bench.record : bench.record.show
 
 [arg]
 workload|wl = ''

@@ -1,5 +1,5 @@
 help = load workload data to a given empty cluster then do physical backup
-abbr = bench.pp
+abbr = bench.prepare|pp
 
 flow = tidb.destroy : tidb.new : [[bench.workload]].load : sleep [[tidb.compaction.wait.secs]] : \
 	[[bench.workload]].gen-tag : tidb.backup.gen-tag : [[tidb.backupper]].backup
