@@ -1,6 +1,6 @@
 help = stop and clean a tidb cluster, restore data by dir via ssh, then start cluster
 
-flow = tidb.clean : tidb.lib.ssh-br.restore : tidb.start
+flow = tidb.clean : tidb.ssh-br.restore : tidb.start
 
 [env]
 bench.workload = read

@@ -1,6 +1,6 @@
 help = stop a tidb cluster, backup data by dir via ssh, then start cluster
 
-flow = tidb.stop : tidb.lib.ssh-br.backup
+flow = tidb.stop : tidb.ssh-br.backup
 
 [env]
 bench.workload = read
