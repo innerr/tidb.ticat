@@ -1,6 +1,6 @@
 help = restore workload data to cluster
 
-flow = [[bench.workload]].gen-tag : tidb.backup.gen-tag : [[tidb.backupper]].restore
+flow = tidb.backup.gen-tag : [[tidb.backupper]].restore
 
 [arg]
 backupper = ssh-br
