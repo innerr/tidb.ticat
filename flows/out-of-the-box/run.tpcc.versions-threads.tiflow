@@ -24,7 +24,7 @@ execute-delay|delay = ''
 tidb.version.nightly-major = v5
 bench.workload = tpcc
 tidb.op.confirm = no
-sys.execute-delay-sec = 2
+sys.execute-delay-sec = 0
 
 [arg2env]
 tidb.tiup.yaml = tiup-yaml-path-or-predefined-name
