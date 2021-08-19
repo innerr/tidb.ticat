@@ -1,0 +1,55 @@
+help = load ycsb data then run benchmark
+tags = out-of-the-box
+
+flow = bench.meta.100 : bench.prepare : bench.restore : bench.run : db.rm : bench.record.show
+
+[arg]
+tiup-yaml-path-or-predefined-name|yaml = test
+
+load-threads|load-thread|lt|LT = 1
+batch-size|batchsize|bs = 128
+conn-count|conncount|cc = 128
+count|c = 1000
+isolation|iso = 0
+read-all-fields|readallfields|raf = true
+request-distribution|rd = 'uniform'
+read-proportion|readproportion|rp = 0
+insert-proportion|insertproportion|ip = 0
+update-proportion|up = 0
+read-modify-write-proportion|readmodifywriteproportion|rmwp = 0
+scan-proportion|scanproportion|sp = 0
+
+threads|thread|thrd|thd|t|T = 1
+version|ver|v|V = nightly
+compaction-wait-secs|compaction-wait = 0
+
+cluster-name|cluster = bench-ycsb
+execute-delay|delay = ''
+
+[val2env]
+tidb.version.nightly-major = v5
+bench.workload = ycsb
+tidb.op.confirm = no
+sys.execute-delay-sec = 2
+
+[arg2env]
+tidb.tiup.yaml = tiup-yaml-path-or-predefined-name
+tidb.cluster = cluster-name
+tidb.version = version
+tidb.compaction.wait.secs = compaction-wait-secs
+
+bench.ycsb.load.threads = load-threads
+bench.ycsb.threads = threads
+bench.ycsb.read-all-fields = read-all-fields
+bench.ycsb.batch-size = batch-size
+bench.ycsb.conn-count = conn-count
+bench.ycsb.count = count
+bench.ycsb.isolation = isolation
+bench.ycsb.request-distribution = request-distribution
+bench.ycsb.read-proportion = read-proportion
+bench.ycsb.insert-proportion = insert-proportion
+bench.ycsb.update-proportion = update-proportion
+bench.ycsb.read-modify-write-proportion = read-modify-write-proportion
+bench.ycsb.scan-proportion = scan-proportion
+
+sys.execute-delay-sec = execute-delay
