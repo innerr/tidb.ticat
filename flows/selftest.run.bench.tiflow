@@ -1,4 +1,10 @@
 help = quick selftest
 tags = selftest
 
-flow = selftest.run.tpch : env.reset : selftest.run.tpcc : dbg.echo "all done"
+## TODO: add selftest for ycsb
+[flow/]
+	run.ycsb : env.reset :
+	selftest.run.tpch : env.reset :
+	selftest.run.tpcc : env.reset :
+	dbg.echo "all done"
+[/flow]
