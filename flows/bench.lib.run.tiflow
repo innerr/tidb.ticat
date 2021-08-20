@@ -1,4 +1,5 @@
 help = run workload and record the result to meta db
+trivial = 1
 
 flow = mark-time bench.run.begin : [[bench.workload]].run : mark-time bench.run.end
 

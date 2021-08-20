@@ -1,4 +1,6 @@
 help = restore prepared data to cluster, then run bench
+trivial = 1
+
 flow = [[bench.run-flow]]
 
 [arg]

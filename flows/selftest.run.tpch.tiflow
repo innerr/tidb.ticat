@@ -1,4 +1,4 @@
 help = quick test
 tags = selftest
 
-flow = run.tpch : e.-- : run.tpch.t-v : e.-- : run.tpch.v-t : e.-- : run.tpch.v-xt  : e.-- : dbg.echo "tpch bench done"
+flow = ^run.tpch : e.-- : ^run.tpch.t-v : e.-- : ^run.tpch.v-t : e.-- : ^run.tpch.v-xt  : e.-- : dbg.echo "tpch bench done"

@@ -1,4 +1,5 @@
 help = stop a tidb cluster, backup data by dir via ssh, then start cluster
+trivial = 1
 
 flow = tidb.stop : tidb.ssh-br.backup
 

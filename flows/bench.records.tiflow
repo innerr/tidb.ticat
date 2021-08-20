@@ -1,4 +1,5 @@
 help = show all score records
+
 flow = bench.record.show
 
 [arg]

@@ -1,11 +1,13 @@
 help = quick test
 tags = selftest
 
-flow = \
-	run.tpcc       : e.-- : rerun.tpcc       : e.-- : \
-	run.tpcc.t-v   : e.-- : rerun.tpcc.t-v   : e.-- : \
-	run.tpcc.v-t   : e.-- : rerun.tpcc.v-t   : e.-- : \
-	run.tpcc.v-xt  : e.-- : rerun.tpcc.v-xt  : e.-- : \
-	run.tpcc.iv-t  : e.-- : rerun.tpcc.iv-t  : e.-- : \
-	run.tpcc.iv-xt : e.-- : rerun.tpcc.iv-xt : e.-- : \
+[flow/]
+	^run.tpcc       : e.-- : ^rerun.tpcc       : e.-- :
+	^run.tpcc.t-v   : e.-- : ^rerun.tpcc.t-v   : e.-- :
+	^run.tpcc.v-t   : e.-- : ^rerun.tpcc.v-t   : e.-- :
+	^run.tpcc.v-xt  : e.-- : ^rerun.tpcc.v-xt  : e.-- :
+	^run.tpcc.iv-t  : e.-- : ^rerun.tpcc.iv-t  : e.-- :
+	^run.tpcc.iv-xt : e.-- : ^rerun.tpcc.iv-xt : e.-- :
+
 	dbg.echo "tpcc bench done"
+[/flow]

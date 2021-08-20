@@ -4,7 +4,7 @@ help = load tpch data, then run tpch with different threads and versions, data w
 tags = out-of-the-box
 abbr = run.tpch.version-xthread|ver-xthrd|v-xt|v-x-t
 
-flow = bench.meta.100 : bench.prepare : compare.versions compare.restore+threads : db.rm : bench.record.show
+flow = bench.meta.100 : ^bench.load+backup : compare.versions compare.restore+threads : db.rm : bench.record.show
 
 [arg]
 tiup-yaml-path-or-predefined-name|yaml = test
