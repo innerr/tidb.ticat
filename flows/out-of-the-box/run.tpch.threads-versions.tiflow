@@ -7,7 +7,7 @@ abbr = run.tpch.thread-version|thrd-ver|t-v
 flow = bench.meta.100 : ^bench.load+backup : compare.threads compare.versions : db.rm : bench.record.show
 
 [arg]
-tiup-yaml-path-or-predefined-name|yaml = test
+tiup-yaml-path-or-predefined-name|yaml = test+tiflash
 scale-factor|sf = 1
 run-duration|duration|dur = 1m
 load-threads|load-thread|load|lt = 1
