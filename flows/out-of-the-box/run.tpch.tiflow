@@ -18,9 +18,10 @@ execute-delay|delay = ''
 
 [val2env]
 tidb.version.nightly-major = v5
+tidb.backup.exist-policy = overwrite
+tidb.op.confirm = no
 bench.workload = tpch
 bench.tpch.tiflash = true
-tidb.op.confirm = no
 sys.execute-delay-sec = 0
 
 [arg2env]
