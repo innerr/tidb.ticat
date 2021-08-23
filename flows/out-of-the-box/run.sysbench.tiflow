@@ -20,6 +20,7 @@ cluster-name|cluster = bench-sysbench
 execute-delay|delay = ''
 
 [val2env]
+tidb.version.nightly-major = v5
 bench.workload = sysbench
 tidb.op.confirm = no
 sys.execute-delay-sec = 0
