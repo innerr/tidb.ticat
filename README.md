@@ -6,8 +6,10 @@ hence we could efficiently build a stronger TiDB, and make a better community.
 
 [Why we need this and how it can help](./why-we-need-this-and-how-it-can-help.md)
 
-## Build (or download) ticat
-`golang` is needed:
+## Get ticat
+[Download ticat](https://github.com/innerr/ticat/releases), or:
+
+Build from source, `golang` is needed:
 ```
 $> git clone https://github.com/innerr/ticat
 $> cd ticat
