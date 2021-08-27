@@ -3,7 +3,7 @@ help = same as run.tpcc.versions-xthreads, but support incompatible versions by 
 tags = out-of-the-box
 abbr = run.tpcc.iversion-xthread|iver-xthrd|iv-xt
 
-flow = bench.meta.100 : compare.prepare+versions compare.restore+threads : db.rm : bench.record.show
+flow = bench.meta.100 : compare.prepare+versions compare.restore+threads : db.rm : bench.record.show : bench.scan.show
 
 [arg]
 tiup-yaml-path-or-predefined-name|yaml = test

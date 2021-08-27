@@ -3,7 +3,7 @@ help = run tpcc with different threads and versions, data will be reset in each 
 
 abbr = rerun.tpcc.version-xthread|ver-xthrd|v-xt|v-x-t
 
-flow = bench.meta.100 : tidb.yaml.predefined : compare.versions compare.restore+threads : db.rm : bench.record.show
+flow = bench.meta.100 : tidb.yaml.predefined : compare.versions compare.restore+threads : db.rm : bench.record.show : bench.scan.show
 
 [arg]
 tiup-yaml-path-or-predefined-name|yaml = test
