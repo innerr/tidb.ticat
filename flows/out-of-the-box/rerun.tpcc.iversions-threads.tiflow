@@ -3,7 +3,7 @@ help = same as rerun.tpcc.versions-threads, but support incompatible versions by
 tags = out-of-the-box
 abbr = rerun.tpcc.iversion-thread|iver-thrd|iv-t
 
-flow = bench.meta.100 : tidb.yaml.predefined : compare.versions compare.threads : db.rm : bench.record.show
+flow = bench.meta.100 : tidb.yaml.predefined : compare.versions compare.threads : db.rm : bench.record.show : bench.scan.show
 
 [arg]
 tiup-yaml-path-or-predefined-name|yaml = test

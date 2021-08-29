@@ -2,7 +2,7 @@ help = run sysbench benchmark on already loaded and backuped data
 abbr = rr.sysbench|sb
 tags = out-of-the-box
 
-flow = bench.meta.100 : tidb.yaml.predefined : bench.restore : bench.run : db.rm : bench.record.show
+flow = bench.meta.100 : tidb.yaml.predefined : bench.restore : bench.run : db.rm : bench.record.show : bench.scan.show
 
 [arg]
 tiup-yaml-path-or-predefined-name|yaml = test

@@ -1,7 +1,7 @@
 help = load ycsb data then run benchmark
 tags = out-of-the-box
 
-flow = bench.meta.100 : ^bench.load+backup : bench.restore : bench.run : db.rm : bench.record.show
+flow = bench.meta.100 : ^bench.load+backup : bench.restore : bench.run : db.rm : bench.record.show : bench.scan.show
 
 [arg]
 tiup-yaml-path-or-predefined-name|yaml = test
