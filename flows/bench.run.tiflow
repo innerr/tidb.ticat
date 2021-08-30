@@ -1,10 +1,21 @@
 help = run workload and record the result to meta db
 trivial = 1
 
-flow = bench.run.workload : bench.gen-tag : bench.record : bench.scan
+flow = [[bench.workload]].run : bench.gen-tag : bench.record : bench.scan
 
 [arg]
 workload|wl = ''
 
+[val2env]
+bench.run.begin = n/a
+bench.run.end = n/a
+bench.run.log = n/a
+bench.run.score = -1
+
 [arg2env]
 bench.workload = workload
+
+[env]
+bench.workload = read
+bench.run.begin = write
+bench.run.end = write
