@@ -5,7 +5,7 @@ flow = ** tidb.config.version [[*bench.compare.versions*]] : [[bench.compare.ver
 
 [arg]
 sub-flow|sub = compare.one.restore+run
-versions|v|V = v5.1.0,nightly
+versions|v|V = v5.3.0,nightly
 
 [env]
 bench.compare.versions = read

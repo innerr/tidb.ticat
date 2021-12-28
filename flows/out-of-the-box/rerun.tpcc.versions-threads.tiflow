@@ -12,7 +12,7 @@ warehouses|warehouse|wh = 1
 run-duration|duration|dur = 1m
 
 threads|thread|thrd|thd|t|T = 1,2
-versions|version|ver|v|V = v5.1.0,nightly
+versions|version|ver|v|V = v5.3.0,nightly
 
 cluster-name|cluster = bench-tpcc
 execute-delay|delay = ''

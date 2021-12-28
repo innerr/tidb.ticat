@@ -12,7 +12,7 @@ run-duration|duration|dur = 1m
 load-threads|load-thread|load|lt = 1
 
 threads|thread|thrd|thd|t|T = 1,2
-versions|version|ver|v|V = v3.0.20,v4.0.9,v5.1.0
+versions|version|ver|v|V = v3.0.20,v4.0.9,v5.3.0
 compaction-wait-secs|compaction-wait = 0
 
 cluster-name|cluster = bench-tpcc
